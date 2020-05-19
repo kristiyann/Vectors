@@ -4,9 +4,4 @@ using namespace std;
 
 class Element
 {
-public:
-
-private:
-	
-
 };

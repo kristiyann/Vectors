@@ -1,7 +1,7 @@
 #pragma once
 #include "Point.h"
 
-class Vector : public Point
+class Vector : private Point
 {
 private:
 	double vecX, vecY, vecZ;
@@ -15,4 +15,7 @@ public:
 	Vector& operator=(const Vector & other);
 	double VectorLength();
 	void VectorDirection();
+	bool vectorIsNull();
+	bool vectorIsParallel(double, double, double);
+	bool vectorIsPerpendicular(double, double, double);
 };

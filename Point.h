@@ -3,7 +3,7 @@
 
 class Point : public Element
 {
-private:
+protected:
 	double x, y, z;
 public:
 	Point();
@@ -12,4 +12,11 @@ public:
 	~Point(); // destruktor
 	Point& operator=(const Point & other); //predefinirane na =
 	bool operator==(const Point & other); //predefinirane na == za da sravnqva 2 tochki
+	//get/set
+	double getX() const;
+	void setX(double);
+	double getY() const;
+	void setY(double);
+	double getZ() const;
+	void setZ(double);
 };
