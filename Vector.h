@@ -9,6 +9,7 @@ private:
 	Point B;
 public:
 	//BIG5
+	Vector(); 
 	Vector(double x1, double x2, double x3); 
 	Vector(Point v1, Point v2); 
 	Vector(const Vector & other); 

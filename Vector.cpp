@@ -7,6 +7,8 @@
 
 using namespace std;
 
+Vector::Vector() {}
+
 Vector::Vector(double x1, double x2, double x3) {
 	vecX = x1;
 	vecY = x2;
