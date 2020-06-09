@@ -3,6 +3,8 @@
 #include "Vector.h"
 #include "VectorLengthException.h"
 #include <iostream>
+#include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -10,12 +12,29 @@ int main() {
 	bool insertSelect;
 	unsigned objectSelect, operationSelect;
 
-	std::cout << "Select method of insertion: type 0 for using console or 1 for using a text file." << endl;
+	std::cout << "Select method of insertion: type 0 for using a txt file or 1 for using console." << endl;
 	std::cin >> insertSelect;
 
 	if (insertSelect == 0)
 	{
+		string fileName, line;
+		std::cout << "Enter file name(including file format, eg. textfile.txt):" << endl;
+		std::cin >> fileName;
 
+		ifstream myfile(fileName);
+		
+		myfile.open(fileName);
+
+		if (myfile.is_open())
+		{
+			while (!myfile.eof())
+			{
+				cout << line << endl;
+			}
+			myfile.close();
+		}
+
+		else cout << "Unable to open file";
 	}
 	else {
 		std::cout << "Choose geomethrical object by inputting the corresponding number." << endl;
@@ -66,12 +85,12 @@ int main() {
 			case 5: break;
 			case 6: break;
 
-			}
+		}
 		
 
 	}
 
 
-	system("PAUSE");
+	cin.getline;
 	return 0;
 }
