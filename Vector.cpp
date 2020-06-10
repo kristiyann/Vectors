@@ -179,3 +179,23 @@ double Vector::operator()(const Vector& v, const Vector& w)
 	
 	return tripleProduct;
 }
+
+ostream& Vector::ins(ostream &out) const {
+	Element::ins(out);
+	out << endl << "Point A: " << A << endl;
+	out << "Point B: " << B << endl;
+	
+	return out;
+}
+
+
+istream& Vector::ext(istream &in) {
+	Element::ext(in);
+	cout << "Enter Point A details: ";
+	in >> A;
+	cout << "Enter Point B details: ";
+	in >> B;
+
+	in.ignore();
+	return in;
+}

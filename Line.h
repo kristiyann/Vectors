@@ -26,4 +26,6 @@ public:
 	bool operator&&(const Line rhs);
 	bool operator!=(const Line rhs);
 	bool operator|(const Line rhs);
+	virtual ostream& ins(ostream &) const;
+	virtual istream& ext(istream &);
 };

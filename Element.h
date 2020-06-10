@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 using namespace std;
 //Базов клас
@@ -23,4 +24,11 @@ public:
 	virtual void setY(double val);
 	virtual double getZ() const;
 	virtual void setZ(double val);
+
+	//Предефиниране на оператори за класа
+	virtual ostream& ins(ostream &) const;
+	virtual istream& ext(istream &);
 };
+
+ostream& operator << (ostream &, const Element &);
+istream& operator >> (istream &, Element &);

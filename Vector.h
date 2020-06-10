@@ -31,4 +31,7 @@ public:
 	Vector operator^(const Vector& rhs);
 	double operator()(const Vector& v, const Vector& w);
 
+	virtual ostream& ins(ostream &) const;
+	virtual istream& ext(istream &);
+
 };
