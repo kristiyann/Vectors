@@ -20,7 +20,7 @@ int main() {
 	{
 		//¬ход чрез текстов файл
 		string fileName, line;
-		cout << "Enter file name(including file format, eg. textfile.txt):" << endl;
+		cout << "Enter file name(including file format, e.g. - filename.txt):" << endl;
 		cin >> fileName;
 
 		ifstream myfile(fileName);
@@ -36,11 +36,11 @@ int main() {
 			myfile.close();
 		}
 
-		else cout << "Unable to open file";
+		else cout << "Unable to open file!";
 	}
 	else {
 		//¬ход през конзола
-		std::cout << "Choose geomethrical object by inputting the corresponding number." << endl;
+		cout << "Choose a geomethrical object by inputting the corresponding number." << endl;
 		do
 		{
 		cout << "1 - Point" << endl;
@@ -49,6 +49,7 @@ int main() {
 		cout << "4 - Segment" << endl;
 		cout << "5 - Triangle" << endl;
 		cout << "6 - Tetrahaedon" << endl;
+		cout << "0 - Exit" << endl;
 		cin >> objectSelect;
 		} while (objectSelect < 0 || objectSelect > 6);
 		
@@ -58,23 +59,23 @@ int main() {
 			double x, y, z;
 			double x2, y2, z2;
 
-			cout << "Please enter x value for point:" << endl;
+			cout << "Please enter x value for the point:" << endl;
 			cin >> x;
-			cout << "Please enter y value for point:" << endl;
+			cout << "Please enter y value for the point:" << endl;
 			cin >> y;
-			cout << "Please enter z value for point:" << endl;
+			cout << "Please enter z value for the point:" << endl;
 			cin >> z;
 
 			Point P(x, y, z);
 
-			cout << "Choose operation(!only enter digits greater than 0)" << endl;
+			cout << "Choose an operation to execute:" << endl;
 			do {
 				cout << "1 - Compare points" << endl;
 				cin >> operationSelect;
 			} while (operationSelect > 1);
 
 			cout << "Enter xyz values for 2nd point to compare:" << endl;
-			cin >> x; cin >> y; cin >> z;
+			cin >> x2; cin >> y2; cin >> z2;
 
 			Point P2(x2,y2,z2);
 
@@ -82,15 +83,30 @@ int main() {
 
 			break; 
 		}
-			case 2: break;
+			case 2: 
+			{
+				break; 
+			}
 			case 3: break;
 			case 4: break;
 			case 5: break;
 			case 6: break;
+			case 0: {
+				bool writeCheck = 1;
+				cout << "Write object information to file? 0 for yes, 1 for no!" << endl;
+				cin >> writeCheck;
 
+				if (writeCheck)
+				{
+					exit(0);
+				}
+				else
+				{
+
+				}
+			}
+				break;
 		}
-		
-
 	}
 
 

@@ -63,3 +63,36 @@ void Element::setZ(double val)
 {
 	z = val;
 }
+
+//Предефиниране на оператори за класа
+ostream& Element::ins(ostream &out) const {
+	return out 
+	<< "X value: " << x << endl 
+	<< "Y value: " << y << endl 
+	<< "Z value: " << z << endl;
+}
+
+
+istream& Element::ext(istream &in) {
+	cout << "Enter x value: ";
+	in >> x;
+	cout << "Enter y value: ";
+	in >> y;
+	cout << "Enter z value: ";
+	in >> z;
+
+	in.ignore();
+	return in;
+}
+
+
+ostream& operator << (ostream &out, const Element &pr)
+{
+	return pr.ins(out);
+}
+
+
+istream& operator >> (istream &in, Element &pr)
+{
+	return pr.ext(in);
+}

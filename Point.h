@@ -13,4 +13,8 @@ public:
 	Point& operator=(const Point & other); //предефиниране на =
 
 	bool operator==(const Point & other); //предефиниране на оператора == да сравнява 2 точки
+
+	//Предефиниране на оператори за класа
+	virtual ostream& ins(ostream &) const;
+	virtual istream& ext(istream &);
 };
