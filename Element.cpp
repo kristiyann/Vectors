@@ -1,6 +1,8 @@
 #include "Element.h"
 
+//Дефиниция на класа Element
 Element::Element() {
+	//Стойности по подразбиране на променливите
 	x = 0;
 	y = 0;
 	z = 0;
@@ -17,8 +19,7 @@ Element::Element(const Element & other) {
 
 }
 Element::~Element() {
-
-
+	//Този деструктор стой празен, тъй като обектите ще могат да се унищожат автоматично
 }
 Element& Element::operator=(const Element & other) {
 	if (this == &other)
@@ -35,7 +36,7 @@ Element& Element::operator=(const Element & other) {
 
 
 
-//accessors&mutators
+//Дефиниция на аксесорите и мутаторите на класа
 double Element::getX() const
 {
 	return x;

@@ -1,6 +1,8 @@
 #include "Point.h"
 
+//Дефиниция на класа Point
 Point::Point() {
+	//Стойности по подразбиране на променливите
 	x = 0;
 	y = 0;
 	z = 0;
@@ -14,12 +16,12 @@ Point::Point(const Point & other) {
 	x = other.x;
 	y = other.y;
 	z = other.z;
-
 }
+
 Point::~Point() {
-
-
+	//Този деструктор стой празен, тъй като обектите ще могат да се унищожат автоматично
 }
+
 Point& Point::operator=(const Point & other) {
 	if (this == &other)
 	{
@@ -35,6 +37,7 @@ Point& Point::operator=(const Point & other) {
 
 bool Point::operator==(const Point & other)
 {
+	//Проверка дали елементите на 2 точки са равни, и ако да, функцията изкарва true
 	if (x==other.x) 
 	{
 		if ((y == other.y) && (z==other.z))
