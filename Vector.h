@@ -1,28 +1,29 @@
 #pragma once
 #include "Point.h"
 
-class Vector : public Point
+class Vector : public Point //Класът Vector наследява Element
 {
 protected:
+	//Нови елементи, които ще са нужни за Vector
 	Point A;
 	Point B;
 public:
 	//BIG5
-	Vector(); 
-	Vector(double x1, double x2, double x3); 
-	Vector(Point v1, Point v2); 
-	Vector(const Vector & other); 
-	~Vector(); 
-	Vector& operator=(const Vector & other); 
+	Vector(); //default конструктор
+	Vector(double x1, double x2, double x3); //конструктор с параметри
+	Vector(Point v1, Point v2); //конструктор с параметри #2
+	Vector(const Vector & other); //копиращ конструктор
+	~Vector(); // деструктор
+	Vector& operator=(const Vector & other); //предефиниране на =
 
-	//functions
+	//Функции на класа
 	double VectorLength();
 	void VectorDirection();
 	bool vectorIsNull();
 	bool vectorIsParallel(double, double, double);
 	bool vectorIsPerpendicular(double, double, double); 
 
-	 //overloading
+	 //Предефиниране на оператори за класа
 	Vector operator+(const Vector& rhs);
 	Vector operator-(const Vector& rhs);
 	Vector operator*(const double& rhs);

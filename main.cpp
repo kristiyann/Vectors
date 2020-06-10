@@ -3,31 +3,53 @@
 #include "Vector.h"
 #include "VectorLengthException.h"
 #include <iostream>
+#include <string>
+#include <fstream>
 
 using namespace std;
 
 int main() {
-	bool insertSelect;
+	bool insertSelect; //Променлива за проверката на метода на вход
 	unsigned objectSelect, operationSelect;
 
-	std::cout << "Select method of insertion: type 0 for using console or 1 for using a text file." << endl;
-	std::cin >> insertSelect;
+	cout << "Select method of insertion: type 0 for using a txt file or 1 for using console." << endl;
+	cin >> insertSelect;
 
+	//Проверка на метода на вход
 	if (insertSelect == 0)
 	{
+		//Вход чрез текстов файл
+		string fileName, line;
+		cout << "Enter file name(including file format, eg. textfile.txt):" << endl;
+		cin >> fileName;
 
+		ifstream myfile(fileName);
+		
+		myfile.open(fileName);
+
+		if (myfile.is_open())
+		{
+			while (!myfile.eof())
+			{
+				cout << line << endl;
+			}
+			myfile.close();
+		}
+
+		else cout << "Unable to open file";
 	}
 	else {
+		//Вход през конзола
 		std::cout << "Choose geomethrical object by inputting the corresponding number." << endl;
 		do
 		{
-		std::cout << "1 - Point" << endl;
-		std::cout << "2 - Vector" << endl;
-		std::cout << "3 - Line" << endl;
-		std::cout << "4 - Segment" << endl;
-		std::cout << "5 - Triangle" << endl;
-		std::cout << "6 - Tetrahaedon" << endl;
-		std::cin >> objectSelect;
+		cout << "1 - Point" << endl;
+		cout << "2 - Vector" << endl;
+		cout << "3 - Line" << endl;
+		cout << "4 - Segment" << endl;
+		cout << "5 - Triangle" << endl;
+		cout << "6 - Tetrahaedon" << endl;
+		cin >> objectSelect;
 		} while (objectSelect < 0 || objectSelect > 6);
 		
 		switch (objectSelect)
@@ -36,23 +58,23 @@ int main() {
 			double x, y, z;
 			double x2, y2, z2;
 
-			std::cout << "Please enter x value for point:" << endl;
-			std::cin >> x;
-			std::cout << "Please enter y value for point:" << endl;
-			std::cin >> y;
-			std::cout << "Please enter z value for point:" << endl;
-			std::cin >> z;
+			cout << "Please enter x value for point:" << endl;
+			cin >> x;
+			cout << "Please enter y value for point:" << endl;
+			cin >> y;
+			cout << "Please enter z value for point:" << endl;
+			cin >> z;
 
 			Point P(x, y, z);
 
-			std::cout << "Choose operation" << endl;
+			cout << "Choose operation(!only enter digits greater than 0)" << endl;
 			do {
-				std::cout << "1 - Compare points" << endl;
-				std::cin >> operationSelect;
-			} while (operationSelect != 0);
+				cout << "1 - Compare points" << endl;
+				cin >> operationSelect;
+			} while (operationSelect > 1);
 
-			std::cout << "Enter xyz values for 2nd point to compare:" << endl;
-			std::cin >> x; std::cin >> y; std::cin >> z;
+			cout << "Enter xyz values for 2nd point to compare:" << endl;
+			cin >> x; cin >> y; cin >> z;
 
 			Point P2(x2,y2,z2);
 
@@ -66,12 +88,12 @@ int main() {
 			case 5: break;
 			case 6: break;
 
-			}
+		}
 		
 
 	}
 
 
-	system("PAUSE");
+	cin.get();
 	return 0;
 }
