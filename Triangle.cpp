@@ -32,15 +32,21 @@ Triangle& Triangle::operator=(const Triangle & other) {
 	return *this;
 }
 
-void Triangle::triType()
+/*void Triangle::triType()
 {
+	;
 
-
-}
+}*/
 
 double Triangle::triArea()
-{}
+{
+	return 0;
+}
 double Triangle::triPerimeter()
-{}
-Point Triangle::triMedicenter()
-{}
+{
+	return 0;
+}
+/*Point Triangle::triMedicenter()
+{
+	
+}*/

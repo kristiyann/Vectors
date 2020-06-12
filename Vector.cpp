@@ -2,6 +2,7 @@
 #include "Vector.h"
 #include "VectorLengthException.h"
 #include <iostream>
+#include <clocale>
 #include <math.h>
 
 //Дефиниция на класа Vector
@@ -36,7 +37,7 @@ Vector::Vector(const Vector & other) {
 
 Vector::~Vector() {
 	cout << "Vector destroyed" << endl; //debug
-	//Този деструктор стой празен, тъй като обектите ще могат да се унищожат автоматично
+	//Този деструктор стои празен, тъй като обектите ще могат да се унищожат автоматично
 }
 
 Vector& Vector::operator=(const Vector & other) {
@@ -58,21 +59,25 @@ Vector& Vector::operator=(const Vector & other) {
 double Vector::VectorLength() {
 	double vectorLength;
 	//Формула за дължина на вектор
-	vectorLength = pow(x, 2)*pow(y, 2)*pow(z, 2);
+	vectorLength = pow(x, 2) + pow(y, 2) + pow(z, 2);
 	vectorLength = pow(vectorLength, 0.5);
 
 	return vectorLength;
 }
 
 
-void Vector::VectorDirection() {
+Vector Vector::VectorDirection() {
 	double xDirection, yDirection, zDirection;
 	//Формула за посока на вектор
 	xDirection = x / VectorLength();
 	yDirection = y / VectorLength();
 	zDirection = z / VectorLength();
 
-	cout << "(x,y,z)" << xDirection << yDirection << zDirection << endl;
+	Vector V(xDirection, yDirection, zDirection);
+
+	return V;
+	//cout << "(x,y,z)" << xDirection << yDirection << zDirection << endl;
+
 }
 
 bool Vector::vectorIsNull()
@@ -92,21 +97,12 @@ bool Vector::vectorIsNull()
 }
 
 bool Vector::vectorIsParallel(double v1, double v2, double v3) {
-	double xPar, yPar, zPar;
 	//Формула за успоредност на вектор
-	xPar = x / v1;
-	yPar = y / v2;
-	zPar = z / v3;
-
-	if (xPar==yPar)
-	{
-		if (yPar == zPar)
-		{
-			return true;
-		}
-		else return false;
-	}
-	else return false;
+	double scalar = x * v1 + y * v2 + z * v3;
+	if (scalar * scalar == ((x * x + y * y + z * z) * (v1 * v1 + v2 * v2 + v3 * v3)))
+		return true;
+	else
+		return false;
 
 }
 
@@ -184,18 +180,34 @@ ostream& Vector::ins(ostream &out) const {
 	Element::ins(out);
 	out << endl << "Point A: " << A << endl;
 	out << "Point B: " << B << endl;
+
 	
 	return out;
 }
 
 
 istream& Vector::ext(istream &in) {
-	Element::ext(in);
-	cout << "Enter Point A details: ";
-	in >> A;
-	cout << "Enter Point B details: ";
-	in >> B;
+	unsigned subOperationSelect;
 
-	in.ignore();
+	cout << "Choose input type by inputting the corresponding number." << endl;
+	do
+	{
+		cout << "1 - Input x, y and z" << endl;
+		cout << "2 - Input 2 points" << endl;
+		cin >> subOperationSelect;
+	} while (subOperationSelect < 1 || subOperationSelect > 2);
+
+	if (subOperationSelect == 1) {
+		Element::ext(in);
+	}
+	else
+	{
+		cout << "Enter Point A values: ";
+		in >> A;
+		cout << "Enter Point B values: ";
+		in >> B;
+	}
+
+    in.ignore();
 	return in;
 }
