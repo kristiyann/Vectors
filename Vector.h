@@ -1,5 +1,6 @@
 #pragma once
 #include "Point.h"
+#include <clocale>
 
 class Vector : public Point //Класът Vector наследява Element
 {
@@ -18,7 +19,7 @@ public:
 
 	//Функции на класа
 	double VectorLength();
-	void VectorDirection();
+	Vector VectorDirection();
 	bool vectorIsNull();
 	bool vectorIsParallel(double, double, double);
 	bool vectorIsPerpendicular(double, double, double); 

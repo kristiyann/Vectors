@@ -1,4 +1,5 @@
 #include "Element.h"
+#include <clocale>
 
 //Дефиниция на класа Element
 Element::Element() {
@@ -19,7 +20,7 @@ Element::Element(const Element & other) {
 
 }
 Element::~Element() {
-	//Този деструктор стой празен, тъй като обектите ще могат да се унищожат автоматично
+	//Този деструктор стои празен, тъй като обектите ще могат да се унищожат автоматично
 }
 Element& Element::operator=(const Element & other) {
 	if (this == &other)
@@ -80,7 +81,7 @@ istream& Element::ext(istream &in) {
 	in >> y;
 	cout << "Enter z value: ";
 	in >> z;
-
+	 
 	in.ignore();
 	return in;
 }

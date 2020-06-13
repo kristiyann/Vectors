@@ -1,4 +1,5 @@
 #include "Point.h"
+#include <clocale>
 
 //Дефиниция на класа Point
 Point::Point() {
@@ -19,7 +20,7 @@ Point::Point(const Point & other) {
 }
 
 Point::~Point() {
-	//Този деструктор стой празен, тъй като обектите ще могат да се унищожат автоматично
+	//Този деструктор стои празен, тъй като обектите ще могат да се унищожат автоматично
 }
 
 Point& Point::operator=(const Point & other) {
@@ -50,3 +51,17 @@ bool Point::operator==(const Point & other)
 }
 
 
+ostream& Point::ins(ostream &out) const {
+	Element::ins(out);
+	
+
+	return out;
+}
+
+
+istream& Point::ext(istream &in) {
+	Element::ext(in);
+
+	in.ignore();
+	return in;
+}

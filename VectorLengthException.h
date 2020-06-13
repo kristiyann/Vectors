@@ -6,8 +6,5 @@ using namespace std;
 class VectorLengthException : public exception
 {
 public:
-	VectorLengthException(const double message);
-	
-	
-
+	VectorLengthException(const unsigned message);
 };
