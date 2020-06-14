@@ -9,6 +9,7 @@ private:
 	Point triC;
 public:
 	//BIG5
+	Triangle();
 	Triangle(Point A, Point B, Point C);
 	Triangle(const Triangle & other);
 	~Triangle();
@@ -19,4 +20,10 @@ public:
 	double triArea();
 	double triPerimeter();
 	Point triMedicenter();
+	bool operator<(const Point point);
+	bool operator>(const Point point);
+	bool operator==(const Point point);
+
+	virtual ostream& ins(ostream &) const;
+	virtual istream& ext(istream &);
 };

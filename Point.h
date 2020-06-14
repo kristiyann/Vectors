@@ -1,5 +1,6 @@
 #pragma once
 #include "Element.h"
+#include <clocale>
 
 class Point : public Element //Класът Point наследява Element
 {

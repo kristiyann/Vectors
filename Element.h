@@ -1,7 +1,9 @@
 #pragma once
+#include <clocale>
 #include <iostream>
 
 using namespace std;
+
 //Базов клас
 class Element
 {
